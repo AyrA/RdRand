@@ -14,7 +14,7 @@ namespace RdRand
         /// Checks if the "RDRAND" Operation is supported
         /// </summary>
         /// <returns>true, if RDRAND is supported, false otherwise</returns>
-        [DllImport(DLL)]
+        [DllImport(DLL, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool RdRandSupported();
 
         /// <summary>
