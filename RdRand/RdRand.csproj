@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,9 +59,9 @@
     <None Include="C_Code\dllmain.c" />
     <None Include="C_Code\librdrand.def" />
     <ContentWithTargetPath Include="C_Code\rdrand.dll">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		<TargetPath>rdrand.dll</TargetPath>
-	</ContentWithTargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>rdrand.dll</TargetPath>
+    </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
     <None Include="C_Code\rdrand.layout" />
