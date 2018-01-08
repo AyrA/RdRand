@@ -47,6 +47,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="C_Code\dllmain.o" />
+    <None Include="C_Code\librdrand.a" />
+    <None Include="C_Code\Makefile.win" />
+    <None Include="C_Code\rdrand.dev" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C_Code\dll.h" />
+    <None Include="C_Code\dllmain.c" />
+    <None Include="C_Code\librdrand.def" />
+    <None Include="C_Code\rdrand.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C_Code\rdrand.layout" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

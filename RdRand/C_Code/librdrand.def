@@ -1,0 +1,4 @@
+; dlltool --base-file R:\Temp\cca19220.base --output-exp rdrand.exp --dllname rdrand.dll --output-def librdrand.def --no-export-all-symbols --add-stdcall-alias --exclude-symbol=DllMainCRTStartup@12 --def R:\Temp\cca19220.def --output-lib librdrand.a
+EXPORTS
+	RdRandSupported @ 1
+	RdRandBytes @ 2
