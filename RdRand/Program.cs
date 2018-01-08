@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RdRand
+﻿namespace RdRand
 {
     class Program
     {
-        static void Main(string[] args)
+        public struct EXIT
         {
+            public const int SUCCESS = 0;
+            public const int NO_RDRAND = 1;
+        }
+
+        static int Main(string[] args)
+        {
+            if (RdRand_Interop.IsRdRandSupported)
+            {
+                byte[] data = RdRand_Interop.GetRandom(1024);
+                return EXIT.SUCCESS;
+            }
+            return EXIT.NO_RDRAND;
         }
     }
 }
