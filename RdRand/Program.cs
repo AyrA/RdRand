@@ -19,7 +19,7 @@ namespace RdRand
         static int Main(string[] args)
         {
 #if DEBUG
-            args = new string[] { "1024" };
+            args = new string[] { "256" };
 #endif
 
             if (args.Contains("/?"))
