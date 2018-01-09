@@ -1,6 +1,6 @@
 [Project]
-FileName=rdrand.dev
-Name=rdrand
+FileName=RdRand.dev
+Name=RdRand
 Type=3
 Ver=2
 ObjFiles=
@@ -9,9 +9,9 @@ Libs=
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
-Compiler=-DBUILDING_DLL=1
-CppCompiler=-DBUILDING_DLL=1
-Linker=--no-export-all-symbols --add-stdcall-alias
+Compiler=-DBUILDING_DLL=1_@@_
+CppCompiler=-DBUILDING_DLL=1_@@_
+Linker=
 IsCpp=0
 Icon=
 ExeOutput=
@@ -19,16 +19,16 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=
+OverrideOutputName=RdRand.dll
 HostApplication=
 UseCustomMakefile=0
-CustomMakefile=
+CustomMakefile=Makefile.win
 CommandLine=
 Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=3
-CompilerSettings=000110b1a0111011000001000
+CompilerSet=0
+CompilerSettings=000000caa0111010000001000
 UnitCount=2
 
 [VersionInfo]
@@ -39,14 +39,14 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=
+FileVersion=1.0.0.0
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=
+ProductVersion=1.0.0.0
 AutoIncBuildNr=0
 SyncProduct=1
 

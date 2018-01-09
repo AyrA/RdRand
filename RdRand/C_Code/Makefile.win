@@ -1,32 +1,30 @@
-# Project: rdrand
-# Makefile created by Dev-C++ 5.6.2
+# Project: RdRand
+# Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 OBJ      = dllmain.o
 LINKOBJ  = dllmain.o
-LIBS     = -L"C:/Dev-Cpp/MinGW32/lib" -L"C:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc --no-export-all-symbols --add-stdcall-alias -m32 -s
-INCS     = -I"C:/Dev-Cpp/MinGW32/include" -I"C:/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
-CXXINCS  = -I"C:/Dev-Cpp/MinGW32/include" -I"C:/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
-BIN      = rdrand.dll
-CXXFLAGS = $(CXXINCS) -march=native -mtune=native -O3 -m32 -std=c99 -Wall -Wextra -pedantic -Werror -Wfatal-errors -DBUILDING_DLL=1
-CFLAGS   = $(INCS) -march=native -mtune=native -O3 -m32 -std=c99 -Wall -Wextra -pedantic -Werror -Wfatal-errors -DBUILDING_DLL=1
+LIBS     = -L"C:/Dev-Cpp/MinGW64/lib" -L"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -m64 -s
+INCS     = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = RdRand.dll
+CXXFLAGS = $(CXXINCS) -Ofast -m64 -std=c99 -Wall -Wextra -pedantic -Werror -DBUILDING_DLL=1
+CFLAGS   = $(INCS) -Ofast -m64 -std=c99 -Wall -Wextra -pedantic -Werror -DBUILDING_DLL=1
 RM       = rm.exe -f
+DEF      = libRdRand.def
+STATIC   = libRdRand.a
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before $(BIN) all-after
 
 clean: clean-custom
-	${RM} $(OBJ) $(BIN)
-
-DLLWRAP   = dllwrap.exe
-DEFFILE   = librdrand.def
-STATICLIB = librdrand.a
+	${RM} $(OBJ) $(BIN) $(DEF) $(STATIC)
 
 $(BIN): $(LINKOBJ)
-	$(DLLWRAP) --output-def $(DEFFILE) --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+	$(CC) -shared $(LINKOBJ) -o $(BIN) $(LIBS) -Wl,--output-def,$(DEF),--out-implib,$(STATIC),--add-stdcall-alias
 
 dllmain.o: dllmain.c
 	$(CC) -c dllmain.c -o dllmain.o $(CFLAGS)
